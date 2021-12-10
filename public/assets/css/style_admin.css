@@ -1,0 +1,501 @@
+.body-admin {
+    background: linear-gradient(0deg, #0F1424, #0F1424), #171F37;
+    min-height: 100vh;
+  }
+  
+  .admin-login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-admin, .setting-coupons-background {
+    background: #0F1424;
+    box-shadow: 0px 1px 0px #171C2C;
+  }
+  
+  .mobile-menu__container-admin {
+    background: rgb(11, 17, 37);
+    backdrop-filter: blur(0px);
+  }
+  
+  .mobile-menu__checkbox:checked~.mobile-menu__container-admin {
+    height: 400px;
+    padding-top: 20px;
+    transition-delay: 0s;
+  }
+  
+  .for-login {
+    background: #181D2D;
+    margin: 0em 0.6em 0em 0.6em;
+    padding: 4.69em 6.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+  }
+  
+  .for-login h1, .create-coupon h1, .edit-coupon h1, .setting-paypal h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1.04em;
+  }
+  
+  .for-login button, .setting-coupons button, .create-coupon button,
+  .edit-coupon button, .setting-paypal button, 
+  .setting-products button{
+    background: #FFE001;
+    padding: 0.81em 1.875em;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #212121;
+    border: 0px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    width: 100%;
+    transition: background .1s ease-in-out;
+  }
+  
+  .for-login input, .create-coupon input, .edit-coupon input, 
+  .setting-paypal input, .edit-coupon textarea, .create-coupon textarea {
+    font-size: 0.875rem;
+    margin-bottom: 0.9375em;
+    width: 100%;
+    background: #0F1424;
+    border: 1px solid #222635;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: white;
+    padding: 1em 1.25em;
+  }
+  
+  .coupons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .setting-coupons button, .setting-products button {
+    white-space: nowrap;
+    padding: 0.7em 1.6875em;
+    margin-right: 3.125em;
+    margin-left: 0.625em;
+    font-size: 1rem;
+    max-width: 195px;
+    width: 100%;
+  }
+  
+  .setting-coupons h1, .setting-wallet h1, .setting-products h1 {
+    margin-right: 3.125em;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .setting-wallet h1 {
+    margin-right: 0;
+    /*margin-left: 0.625em;*/
+    /*padding: 0.8125em 1.6875em;*/
+    text-align: center;
+    width: 120px;
+    border-radius: 4px;
+  }
+  
+  .setting-coupons, .setting-wallet, .setting-products, 
+  .admin-products
+   {
+    max-width: 1345px;
+    width: 100%;
+  }
+  
+  .setting-coupons-background div, .win-coupons div{
+    max-width: 1345px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .win-coupons {
+    flex-direction: column;
+    display: flex;
+    max-width: 1345px;
+    width: 100%;
+  }
+  
+  .setting-coupons-background {
+    margin-top: 72px;
+    padding: 0.9em 0em 0.9em 0em;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .win-coupons div{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .conteiner-admin {
+    max-width: 1345px;
+  }
+  
+  .coupon {
+    padding: 24px 50px;
+    background: #181D2D;
+    border: 1px solid #FFE001;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .table-coupons {
+    margin: 0em 0.625em;
+    color: white;
+    font-size: 1.125rem;
+    border-collapse: separate;
+    border-spacing: 0em 0.75em;
+    white-space: nowrap;
+  }
+  .table-coupons  thead th {
+      text-align: left;
+      padding: 0.8125em 0em 0.1875em 3.125em;
+  }
+  
+  .table-coupons  tbody td {
+    text-align: left;
+    padding: 1.5em 3.125em;
+    width: 25%;
+  }
+  .table-coupons  tbody tr{
+    background: #181D2D;
+  }
+  
+  .table-coupons  tbody tr td:first-child {
+      border-radius: 8px 0 0 8px;
+  }
+  .table-coupons  tbody tr td:last-child {
+      border-radius: 0 8px 8px 0;
+  }
+  
+  .create-coupon button, .create-coupon input, 
+  .create-coupon h2,
+  .edit-coupon button, .edit-coupon input,
+  .edit-coupon h2, .edit-coupon textarea, 
+  .create-product textarea {
+    max-width: 380px;
+    width: 100%;
+    transition: background .1s ease-in-out;
+  }
+  
+  .create-coupon h1, .create-coupon h2,
+  .edit-coupon h1, .edit-coupon h2, .setting-paypal h2 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .create-coupon h2, .edit-coupon h2, .setting-paypal h2 {
+    margin-top: 0.9375em;
+    color: #FFE001;
+    cursor: pointer;
+  }
+  
+  .create-coupon, .edit-coupon {
+    margin-top: 72px;
+    z-index: 98;
+    padding-top: 1em;
+    position: fixed;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(50px);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+  }
+  
+  .create-coupon input, .edit-coupon input, .setting-paypal input,
+  .edit-coupon textarea, .create-coupon textarea
+  {
+    background: #141828;
+  }
+  
+  .create-coupon div, .edit-coupon div, .setting-paypal div {
+    flex-direction: column;
+    max-width: 380px;
+    margin: 10px;
+  }
+  
+  .create-coupon h2:hover, .edit-coupon h2:hover, 
+  .setting-paypal h2:hover {
+    color: #FFE31A;
+    transition: background .1s ease-in-out;
+  }
+  
+  .create-coupon h2:active, .edit-coupon h2:active, 
+  .setting-paypal h2:active {
+    color: #E6CA01;
+    transition: background .1s ease-in-out;
+  }
+  
+  .setting-wallet h1.active:hover {
+    cursor: default;
+    color: #212121;
+  }
+  
+  .setting-wallet h1.active {
+    /*margin-left: 0.625em;*/
+    background-color: #FFE001;
+    color: #212121;
+    padding: 0.8125em /*1.6875em*/0;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .wallet-disabled {
+    color:rgba(203, 206, 218, 0.788);
+  }
+  
+  .setting-paypal {
+    margin-top: 0.9375em;
+    max-width: 1345px;
+    width: 100%;
+  }
+  
+  .setting-products button {
+    padding: 0.7em 1.40625em;
+  }
+  
+  .admin-products {
+    align-content: flex-start;
+    height: 100%;
+    margin-top: 12.5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .admin-product-1 {
+    background: linear-gradient(0deg, rgba(22, 30, 57, 0.5),
+     rgba(22, 30, 57, 0.5)), url(../images/product_1.png);
+  }
+  
+  .admin-product-2 {
+    background: linear-gradient(0deg, rgba(22, 30, 57, 0.5),
+     rgba(22, 30, 57, 0.5)), url(../images/product_2.png);
+  }
+  
+  .admin-product-3 {
+    background: linear-gradient(0deg, rgba(22, 30, 57, 0.5),
+     rgba(22, 30, 57, 0.5)), url(../images/product_3.png);
+  }
+  
+  .if-select {
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+  
+  .if-select:focus {
+    box-shadow: 0px 0px 0px 1px #FFE001 !important;
+  }
+  
+  input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  textarea::-webkit-input-placeholder {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  .edit-coupon textarea, .create-coupon textarea {
+    resize: none;
+  }
+  
+  .img-plus {
+    margin-top: 6.25em;
+    background: #FFE001;
+    padding: 0.75em 0.875em;
+    background: #FFE001;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 2.875em;
+    transition: background .1s ease-in-out;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+  
+  .create-product div {
+    margin: 0em;
+  }
+  
+  .create-product-parametrs {
+    padding: 0.625em;
+  }
+  
+  
+  .create-product .for-button-plus {
+    margin-right: 0.625em;
+    padding-bottom: 12.375em;
+  }
+  
+  .create-product .for-create-product {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    max-width: 28.5em;
+  }
+  
+  .edit-coupon .ellements-edit, .create-coupon .for-create-product,
+  .create-coupon .ellements-create {
+    padding-bottom: 6.25em;
+  }
+  
+  .create-product .preview-button {
+    padding: auto;
+    /*max-width: 14.0625em;*/
+    margin-bottom: 0.9375em;
+  }
+  
+  .for-add-peview {
+    display: flex;
+    align-items: center;
+  }
+  
+  .edit-description {
+    min-height: 12.125em;
+  }
+
+  .edit-coupon-h1 {
+    padding-top: 0.625em;
+    white-space: nowrap;
+  }
+
+  .admin-product {
+    background-size: cover;
+    border-radius: 4px;
+    margin: 12.5px 11.5px;
+    max-width: 425px;
+    width: 100%;
+    max-height: 247px;
+    height: 100%;
+    background-position: center;
+  }
+
+  .admin-product div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .admin-product div:last-child {
+    padding-bottom: 25px;
+  }
+
+  .admin-announcement-1 {
+    background: url(../images/announce_1.png);
+  }
+  
+  .admin-announcement-2 {
+    background: url(../images/announce_2.png);
+  }
+
+  .admin-announcement {
+    background-position: center;
+    max-height: 161px;
+  }
+
+.statistics-h1 h1 {
+  padding: 13px 0px;
+  text-align: center
+}  
+
+.statistics-h1 h1:first-child {
+  margin-left: 10px;
+} 
+
+.select {
+  color: #FFE001
+}
+
+.emptyCouponVal {
+  width: 100px;
+  height: 18px;
+  background-color: #596077;
+  border-radius: 8px;
+  filter: blur(1px);
+}
+
+.admin_circles {
+  display: flex;
+  flex-direction: row !important;
+}
+
+.circle {
+  height: 12px;
+  border-radius: 5px;
+  margin: 5px !important;
+  margin-bottom: 10px !important;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.circle_active {
+  border-color:#FFE001;
+}
+
+.input-and-plus {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  align-items: bottom;
+  margin-bottom: 0.9375em !important;
+}
+
+.input-and-plus input {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.input-and-plus .img-plus {
+  position: absolute;
+  margin-top: 2px;
+  transform: translate(10px,0);
+}
+
+@media (max-width: 425px) {
+  .input-and-plus .img-plus {
+    position: relative;
+    margin-top: 2px;
+    transform: translate(0,0);
+  }
+}
+
+.period-remove {
+  background-color: #ff4654;
+}
+
+.period-remove img{
+  transform: rotate(45deg);
+}
