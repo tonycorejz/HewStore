@@ -16,7 +16,7 @@ const AdminAnnouncementsList = ({items, loading, setSelectedAnnouncement}) => {
   }
 
   return (
-    <div className="ann_content" style={{marginTop: 20+"px"}}>
+    <div className="ann_content">
       {
         items.map((item) =>
           <AdminAnnouncement announcement={item} key={item.id} setSelectedAnnouncement={setSelectedAnnouncement} />

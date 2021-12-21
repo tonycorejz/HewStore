@@ -2,8 +2,8 @@ import MainHeader from "../components/MainHeader";
 import AnnouncementsList from "../components/AnnouncementsList";
 import ProductsList from "../components/ProductsList";
 import Pagination from '../components/Pagination';
-import Cart from '../components/Cart/Cart';
 import {useState, useEffect} from 'react';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Index = () => {
 
@@ -15,39 +15,50 @@ const Index = () => {
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductsLoading] = useState(false);
 
+  function getAnnouncementsData() {
+    return [
+      {id: 1, img: "./assets/images/announce_1.png", date: "24.06.2020", header: "Online Purchase", body: "https://sellix.io/HewStore [PayPal, Credit & Debit Card, BTC, ETH, LTC, XLM, Apple Pay] and another payments method."},
+      {id: 2, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 3, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 4, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 5, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 6, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 7, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 8, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 9, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 10, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 11, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+      {id: 12, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
+    ]
+  }
+
+  function getProductsData() {
+    return [
+      {id: 1, name: "Edenity", description: "", prices: [{period: "Week Subscription", price: "70"}, {period: "Day Subscription", price: "10"}], back_img: "./assets/images/product_1.png", img: "./assets/images/sub_product_1.png", tag: {name: "APEX", color: "p_red"}},
+      {id: 2, name: "2 Товар", description: "", prices: [{period: "1 месяц", price: "10"}, {period: "6 месяцев", price: "60"}], back_img: "./assets/images/product_2.png", img: "./assets/images/sub_product_2.png", tag: {name: "Valorant", color: "p_red"}},
+      {id: 3, name: "BCWare", description: "", prices: [{period: "1 месяц", price: "10"}, {period: "6 месяцев", price: "60"}], back_img: "./assets/images/product_3.png", img: "./assets/images/sub_product_3.png", tag: {name: "Overwatch", color: "p_yellow"}},
+      {id: 4, name: "3 Товар", description: "", prices: [{period: "1 месяц", price: "10"}, {period: "6 месяцев", price: "60"}], back_img: "./assets/images/product_4.png", img: "./assets/images/sub_product_4.png", tag: {name: "Overwatch", color: "p_yellow"}},
+      {id: 5, name: "4 Товар", description: "", prices: [{period: "1 месяц", price: "10"}, {period: "6 месяцев", price: "60"}], back_img: "./assets/images/product_5.png", img: "./assets/images/sub_product_5.png", tag: {name: "Overwatch", color: "p_yellow"}},
+    ]
+  }
+
   useEffect(() => {
     const getAnnouncements = async() => {
       setAnnouncementsLoading(true);
       setProductsLoading(true);
       await setTimeout( () =>{ 
-        
-        setAnnouncements([
-          {id: 1, img: "./assets/images/announce_1.png", date: "24.06.2020", header: "Online Purchase", body: "https://sellix.io/HewStore [PayPal, Credit & Debit Card, BTC, ETH, LTC, XLM, Apple Pay] and another payments method."},
-          {id: 2, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 3, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 4, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 5, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 6, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 7, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 8, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 9, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 10, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 11, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-          {id: 12, img: "./assets/images/announce_2.png", date: "22.06.2020", header: "Our Discord", body: "Main: https://discord.gg/4bw8JQD BackUp: https://discord.gg/hgHVZxJ"},
-        ]);
+        setAnnouncements(getAnnouncementsData());
         setAnnouncementsLoading(false);
 
-        setProducts([
-          {id: 1, back_img: "./assets/images/product_1.png", img: "./assets/images/sub_product_1.png", tag: {name: "APEX", color: "p_red"}},
-          {id: 2, back_img: "./assets/images/product_2.png", img: "./assets/images/sub_product_2.png", tag: {name: "Valorant", color: "p_red"}},
-          {id: 3, back_img: "./assets/images/product_3.png", img: "./assets/images/sub_product_3.png", tag: {name: "Overwatch", color: "p_yellow"}},
-          {id: 4, back_img: "./assets/images/product_4.png", img: "./assets/images/sub_product_4.png", tag: {name: "Overwatch", color: "p_yellow"}},
-          {id: 5, back_img: "./assets/images/product_5.png", img: "./assets/images/sub_product_5.png", tag: {name: "Overwatch", color: "p_yellow"}},
-        ])
+        setProducts(getProductsData())
         setProductsLoading(false);
       }, 1000)
     }
-    getAnnouncements()
+
+    getAnnouncements();
+
+    if(JSON.parse(localStorage.getItem("cart")) != null)
+      setOrders([...JSON.parse(localStorage.getItem("cart"))]);
   }, [])
 
   const lastAnnouncementIndex = announcementsCurrentPage * announcementsPerPage
@@ -56,8 +67,29 @@ const Index = () => {
 
   const paginate = pageNumber => setAnnouncementsCurrentPage(pageNumber);
 
+  const [cartactive, setCartActive] = useState(false);
+  const [orders, setOrders] = useState([]);
+
+  const addOrder = (newOrder) => {
+    let isSet = false;
+    orders.forEach((order, idx) => {
+      if(order.name == newOrder.name && order.period == newOrder.period){
+        orders[idx].qnty += 1;
+        orders[idx].checked = true;
+        setOrders([...orders]);
+        localStorage.setItem("cart", JSON.stringify([...orders]));
+        isSet = true;
+        return;
+      }
+    })
+    if(!isSet){
+      setOrders([...orders, newOrder]);
+      localStorage.setItem("cart", JSON.stringify([...orders, newOrder]));
+    }
+  }
+
   return(
-    <MainHeader keywords={"Main page"}>
+    <MainHeader keywords={"Main page"} cartactive={cartactive} setCartActive={setCartActive} orders={orders} setOrders={setOrders}>
       <section className="section main" id="main">
         <div className="container">
           <div className="row">
@@ -72,17 +104,15 @@ const Index = () => {
                   </h4>
                 </div>
                 <div className="main_buttons">
-                  <a className="purchase" href="./cart.html"
-                    ><button>PURCHASE CHEAT</button></a
-                  >
-                  <a className="more" href="#products">
+                  <div className="purchase" onClick={() => setCartActive(true)}><button>PURCHASE CHEAT</button></div>
+                  <Link className="more" to="products" spy={true} smooth={true} offset={-100} duration={500} attr="products">
                     <button>
                       <p>more details</p>
                       <svg className="icon">
                         <use xlinkHref="./assets/images/icons.svg#more"></use>
                       </svg>
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="main_illustration">
@@ -113,7 +143,7 @@ const Index = () => {
                 experiment in checking the corresponding activation conditions
               </h2>
             </div>
-            <ProductsList items={products} loading={productsLoading}/>
+            <ProductsList addOrder={addOrder} items={products} loading={productsLoading}/>
           </div>
         </div>
       </section>
@@ -154,7 +184,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <a href="https://t.me/NobodyKnowsMeAgain" className="new_contact">
+              <a href="https://t.me/NobodyKnowsMeAgain" target="_blank" className="new_contact">
                 <div className="contact_content">
                   <div className="c_img">
                     <img src="./assets/images/telegram.svg" alt="Telegram" />
@@ -169,7 +199,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <Cart/>
     </MainHeader>
 
   );

@@ -29,28 +29,22 @@ const FilterByTime = (props) => {
     switch (time) {
       case "today":{
         purchases = purchases.filter(isToday);
-        console.log(purchases);
-        props.filterPurchases(purchases);
         break;
       }
         
       case "week": {
-        purchases = purchases.filter(isThisWeek);
-        console.log(purchases);
-        props.filterPurchases(purchases);
+        purchases = purchases.filter(isThisWeek);       
         break;
       }
 
       case "month": {
-        purchases = purchases.filter(isThisMonth);
-        console.log(purchases);
-        props.filterPurchases(purchases);
+        purchases = purchases.filter(isThisMonth);       
         break;
       }
-        
-      default:
-        props.filterPurchases(purchases);
     }
+
+    props.filterPurchases(purchases);
+
   }
 
   return (

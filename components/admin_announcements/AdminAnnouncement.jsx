@@ -12,24 +12,22 @@ const AdminAnnouncement = (props) => {
         <div className="a_text_start">
           <div className="a_text_start_head">
             <svg className="icon">
-              <use xlinkHref="./assets/images/icons.svg#date"></use>
+              <use xlinkHref="/assets/images/icons.svg#date"></use>
             </svg>
             <p className="date">{props.announcement.date}</p>
           </div>
           <div className="a_text_start_content">
-            {/*<!-- LINK 2 -->*/}
             <a className="a_start_content_head" href="#">{props.announcement.header}</a>
             <p className="a_start_content_body">{props.announcement.body}</p>
           </div>
         </div>
         <div className="a_text_end">
-          {/*<!-- LINK 3 -->*/}
           <Link href={`../announcements/${props.announcement.id}`}>
           <a className="a_button" href="#">
             Read more
             <svg className="icon">
               <use
-                xlinkHref="./assets/images/icons.svg#more"
+                xlinkHref="/assets/images/icons.svg#more"
               ></use></svg>
           </a>
           </Link>

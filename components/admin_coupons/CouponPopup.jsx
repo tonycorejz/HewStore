@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import FormInput from './UI/FormInput';
-import CreateCouponBtn from './UI/CreateCouponBtn';
+import FormInput from '../UI/FormInput';
+import CreateCouponBtn from '../UI/CreateCouponBtn';
 
 const CouponPopup = ({active, setActive, create, edit, selectedCoupon, setSelectedCoupon}) => {
  
@@ -12,6 +11,7 @@ const CouponPopup = ({active, setActive, create, edit, selectedCoupon, setSelect
     }
     create(newCoupon);
     setSelectedCoupon({id: "", name: "", numUses: "", validPeriod: "", discount: ""});
+    setActive(false)
   }
 
   const editCoupon = (e) => {
@@ -21,6 +21,7 @@ const CouponPopup = ({active, setActive, create, edit, selectedCoupon, setSelect
     }
     edit(newCoupon);
     setSelectedCoupon({id: "", name: "", numUses: "", validPeriod: "", discount: ""});
+    setActive(false)
   }
 
   return (

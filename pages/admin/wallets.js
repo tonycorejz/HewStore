@@ -37,25 +37,21 @@ const AdminWallets = () => {
     <MainContainer keywords={"Не главная страница"}>
       <div className="body-admin body-admin-coupons">
         <section className="section coupons">
-            <div className="setting-coupons-background">
-              <SettingWallet wallets={wallets} activeWallet={activeWallet} setActiveWallet={setActiveWallet}/>
+          <div className="setting-coupons-background">
+            <SettingWallet wallets={wallets} activeWallet={activeWallet} setActiveWallet={setActiveWallet}/>
+          </div>
+          <div className="setting-paypal">
+            <div>
+              <h1>Настройки {activeWallet.name}</h1>
+              {
+                  activeWallet.Enabled ? 
+                    <><input placeholder="Адрес кошелька"  onChange={e => setActiveWallet({...activeWallet, address: e.target.value})} value={activeWallet.address} type="text"/> 
+                    <button onClick={() => editWallets()}>Сохранить</button></>
+                    : ""
+              }
+              <h2 onClick={() => toggleEnabled()}>{activeWallet.Enabled ? "Отключить кошелёк" : "Включить кошелёк"}</h2>  
             </div>
-            <div className="setting-paypal">
-                <div>
-                  <h1>Настройки {activeWallet.name}</h1>
-                  {
-                      activeWallet.Enabled ? 
-                        <><input placeholder="Адрес кошелька"  onChange={e => setActiveWallet({...activeWallet, address: e.target.value})} value={activeWallet.address} type="text"/> 
-                        <button onClick={() => editWallets()}>Сохранить</button></>
-                       : ""
-    
-                  }
-                  
-                  
-                  <h2 onClick={() => toggleEnabled()}>{activeWallet.Enabled ? "Отключить кошелёк" : "Включить кошелёк"}</h2>  
-                </div>
-            </div>
-            
+          </div>   
         </section>
       </div>
     </MainContainer>

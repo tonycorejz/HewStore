@@ -1,79 +1,96 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
+import Payment from '../Payment/Payment';
 import CartItem from './CartItem';
-const Cart = () => {
+import CheckInput from '../UI/CheckInput';
+import PurchaseListItem from './PurchaseListItem';
 
-  const [cartProducts, setCartProducts] = useState([
-    {}
-  ]);
+const Cart = ({active, setCartActive, orders, setOrders}) => {
+
+  const [chooseAll, setChooseAll] = useState(true);
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem("cart")) != null) [...JSON.parse(localStorage.getItem("cart"))].forEach((order) => {
+      if(order.checked != true) setChooseAll(false);
+    })
+  }, [])
+
+  const [toPayment, setToPayment] = useState(false);
+
+  const chooseAllHandle = () => {
+    orders.forEach( (order, idx) => {
+      orders[idx].checked = true;
+    });
+    setOrders([...orders]);
+    localStorage.setItem("cart", JSON.stringify([...orders]));
+    setChooseAll(true);
+  }
+
+  const itemCheckChanged = (id) => {
+    let isAllChecked = true;
+    orders.forEach( (order, idx) => {
+      if(order.id == id) {
+        orders[idx].checked = !order.checked;
+      }
+      if(order.checked == false) isAllChecked = false;
+    });
+    setChooseAll(isAllChecked);
+    setOrders([...orders]);
+    localStorage.setItem("cart", JSON.stringify([...orders]));
+  }
+
+  const editOrderQnty = (editedId, editedqnty) => {
+    orders.forEach( (order, idx) => {
+      if(order.id == editedId) {
+        orders[idx].qnty = editedqnty;
+      }
+    });
+    setOrders([...orders]);
+    localStorage.setItem("cart", JSON.stringify([...orders]));
+  }
+
+  const removeOrder = removedId => {
+    orders.forEach( (order, idx) => {
+      if(order.id == removedId) {
+        orders.splice(idx,1);
+      }
+    });
+    setOrders([...orders]);
+    localStorage.setItem("cart", JSON.stringify([...orders]));
+  }
+
+  const total = orders.reduce((prevOrder, currentOrder) => {
+    let price = 0;
+    if(currentOrder.checked == true) price = parseFloat(currentOrder.price);
+    let count = parseFloat(currentOrder.qnty);
+    return prevOrder + price * count;
+  }, 0);
 
   return (
-    <div className="cart-bg">
-    <main className="cart-main zakaz-form switch-form start-anim">
+    <div className={ active ? "cart-bg" : "d-none cart-bg"} onClick={() => setCartActive(false)} >
+      <main className={toPayment ? "cart-main zakaz-form switch-form" : "cart-main zakaz-form switch-form start-anim"} onClick={e => e.stopPropagation()} >
         <div className="container">
           <div className="row">
             <div className="cart-content">
               <div className="cart-head">
                 <h3>CART</h3>
-                <h4>999 items</h4>
+                <h4>{orders.length} {orders.length != 1 ? "items" : "item"}</h4>
               </div>
               <div className="cart-content-aside">
                 <div className="cart-body">
                   <div className="cart-interactive">
-                    <label className="b-contain">
-                      <span>Choose all</span>
-                      <input type="checkbox" checked />
-                      <div className="b-input"></div>
-                    </label>
+                    <CheckInput isChanged={chooseAllHandle} checked={chooseAll}>Choose all</CheckInput>
                     <button className="cart-clear">
                       <svg className="icon">
-                        <use xlinkHref="./assets/images/icons.svg#basket"></use>
+                        <use xlinkHref="/assets/images/icons.svg#basket"></use>
                       </svg>
-                      <p>Clear all</p>
+                      <p onClick={() => {setOrders([]); localStorage.setItem("cart", JSON.stringify([]));} }>Clear all</p>
                     </button>
                   </div>
-                  <CartItem/>
+                  {
+                    orders.map((order) => 
+                      <CartItem order={order} editOrderQnty={editOrderQnty} removeOrder={removeOrder} itemCheckChanged={itemCheckChanged} key={order.id}/>
+                    )
+                  }
                   
-                  <div className="cart-i">
-                    <img
-                      className="cart-item__img_bg"
-                      src="./assets/images/sub_product_1.png"
-                      alt="product logo"
-                    />
-                    <div className="cart-item">
-                      <div className="cart-item_start">
-                        <img
-                          className="cart-item__img"
-                          src="./assets/images/sub_product_1.png"
-                          alt="product logo"
-                        />
-                        <div className="cart-item-text">
-                          <h3 className="c-item-text-info">
-                            BCWare: Week Subscription
-                          </h3>
-                          <h4 className="c-item-text-comment">Apex Software</h4>
-                        </div>
-                      </div>
-                      <div className="cart-item-count">
-                        <button className="cart-count-button" data-direction="minus">
-                          -
-                        </button>
-                        <input className="ccb-input" type="text" value="1" />
-                        <button className="cart-count-button" data-direction="plus">
-                          +
-                        </button>
-                      </div>
-                      <div className="cart-item-price">
-                        <span className="cart-price">$ 12.50</span>
-                        <button className="cart-price-del">
-                          <svg className="icon">
-                            <use
-                              xlinkHref="./assets/images/icons.svg#basket"
-                            ></use>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div className="cart-aside">
                   <div className="cart-aside-content">
@@ -81,18 +98,15 @@ const Cart = () => {
                       <h2>Purchase</h2>
                     </div>
                     <ul className="purchase-list">
-                      <li className="p-list-item">
-                        <p className="p-list-item__name">Edenity: Day Subscription</p>
-                        <span className="p-list-item__price">$ 9.00</span>
-                      </li>
-                      <li className="p-list-item">
-                        <p className="p-list-item__name">BCWare: Week Subscription</p>
-                        <span className="p-list-item__price">$ 12.50</span>
-                      </li>
+                      {
+                        orders.map((order) => 
+                          order.checked && <PurchaseListItem order={order} key={order.id}/>
+                        )
+                      }
                     </ul>
                     <div className="purchase-list__total">
                       <p className="p-list-total__name">Total</p>
-                      <span className="p-list-total__price">$ 21.50</span>
+                      <span className="p-list-total__price">$ {total}</span>
                     </div>
                     <div className="purchase-buttons">
                       <div className="p-coupone">
@@ -121,7 +135,7 @@ const Cart = () => {
                         </button>
                       </div>
                       <div className="p-submit">
-                        <button className="p-submit__button">
+                        <button className="p-submit__button" onClick={() => setToPayment(!toPayment)}>
                           <p>PURCHASE</p>
                         </button>
                       </div>
@@ -133,7 +147,8 @@ const Cart = () => {
           </div>
         </div>
       </main>
-      </div>
+      <Payment toPayment={toPayment} setToPayment={setToPayment} orders={orders} total={total} />
+    </div>
   )
 
 }

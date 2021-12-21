@@ -1,6 +1,9 @@
 import Head from "next/head";
+import Cart from './Cart/Cart';
+import { Link, animateScroll as scroll } from "react-scroll";
 
-const MainHeader = ({children, keywords}) => {
+
+const MainHeader = ({children, keywords, setCartActive, cartactive, orders, setOrders}) => {
   return(
     <>
       <Head>
@@ -45,9 +48,6 @@ const MainHeader = ({children, keywords}) => {
           content="/assets/fav/browserconfig.xml"
         />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="stylesheet" href="/assets/css/grid.css" />
-        <link rel="stylesheet" href="/assets/css/reset.css" />
-        <link rel="stylesheet" href="/assets/css/style.css" />
       </Head>
       <header className="header">
         <div className="container">
@@ -67,25 +67,20 @@ const MainHeader = ({children, keywords}) => {
               <div className="header_middle">
                 <nav className="menu navbar">
                   <ul className="header-list flex-wrap">
-                    <li className="header-item" attr="main">
-                      <a href="#main" className="header-link active_link">HOME</a>
-                    </li>
-                    <li className="header-item d-flex" attr="ann">
-                      <a href="#ann" className="header-link">ANNOUNCEMENT</a>
-                    </li>
-                    <li className="header-item d-flex" attr="products">
-                      <a href="#products" className="header-link">
+                    <Link className="header-item header-item" activeClass="header-item-active" to="main" spy={true} smooth={true} offset={-100} duration={500} attr="main">
+                      <h1 className="header-link">HOME</h1>
+                    </Link>
+                    <Link className="header-item d-flex" activeClass="header-item-active" to="ann" spy={true} smooth={true} offset={-100} duration={500} attr="ann">
+                      <h1 className="header-link">ANNOUNCEMENT</h1>
+                    </Link>
+                    <Link className="header-item d-flex" activeClass="header-item-active" to="products" spy={true} smooth={true} offset={-120} duration={500} attr="products">
+                      <h1 className="header-link">
                         PRODUCTS
-                        {/*<!-- <svg className="icon">
-                          <use
-                            xlinkHref="/assets/images/icons.svg#dropdown"
-                          ></use>
-                        </svg> -->*/}
-                      </a>
-                    </li>
-                    <li className="header-item d-flex" attr="contacts">
-                      <a href="#contacts" className="header-link">CONTACTS</a>
-                    </li>
+                      </h1>
+                    </Link>
+                    <Link className="header-item d-flex" activeClass="header-item-active" to="contacts" spy={true} smooth={true} offset={-100} duration={500} attr="contacts">
+                      <h1 className="header-link">CONTACTS</h1>
+                    </Link>
                   </ul>
                 </nav>
                 <nav className="mobile-menu">
@@ -123,7 +118,7 @@ const MainHeader = ({children, keywords}) => {
                               </li>
                               <li>
                                 <div className="header_end">
-                                  <a className="cart" href="/cart">
+                                  <div className="cart" onClick={() => setCartActive(true)}>
                                     <button>
                                       <svg className="icon">
                                         <use
@@ -132,10 +127,10 @@ const MainHeader = ({children, keywords}) => {
                                       </svg>
                                       CART
                                     </button>
-                                  </a>
-                                  <a className="purchase" href="/cart"
-                                    ><button>PURCHASE CHEAT</button></a
-                                  >
+                                  </div>
+                                  <div className="purchase" onClick={() => setCartActive(true)}>
+                                    <button>PURCHASE CHEAT</button>
+                                  </div>
                                 </div>
                               </li>
                             </ul>
@@ -147,23 +142,23 @@ const MainHeader = ({children, keywords}) => {
                 </nav>
               </div>
               <div className="header_end">
-                <a className="cart" href="/cart">
+              <div className="cart" onClick={() => setCartActive(true)}>
                   <button>
                     <svg className="icon">
                       <use xlinkHref="/assets/images/icons.svg#cart"></use>
                     </svg>
                     CART
                   </button>
-                </a>
-                <a className="purchase" href="/cart"
-                  ><button>PURCHASE CHEAT</button></a
-                >
+                </div>
+                <div className="purchase" onClick={() => setCartActive(true)}>
+                  <button>PURCHASE CHEAT</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-      <div>
+      <div className="main_container">
         {children}
       </div>
       <footer className="footer">
@@ -198,17 +193,17 @@ const MainHeader = ({children, keywords}) => {
                 </nav>
               </div>
               <div className="header_end">
-                <a className="cart" href="/cart">
+                <div className="cart" onClick={() => setCartActive(true)}>
                   <button>
                     <svg className="icon">
                       <use xlinkHref="/assets/images/icons.svg#cart"></use>
                     </svg>
                     CART
                   </button>
-                </a>
-                <a className="purchase" href="/cart"
-                  ><button>PURCHASE CHEAT</button></a
-                >
+                </div>
+                <div className="purchase" onClick={() => setCartActive(true)}>
+                  <button>PURCHASE CHEAT</button>
+                </div>
               </div>
             </div>
           </div>
@@ -226,6 +221,7 @@ const MainHeader = ({children, keywords}) => {
           </div>
         </div>
       </footer>
+      <Cart active={cartactive} setCartActive={setCartActive} orders={orders} setOrders={setOrders}/>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import Product from './Product';
 
-const ProductsList = ({items, loading}) => {
+const ProductsList = ({items, loading, addOrder}) => {
 
   if(loading) { //Пока сделал так, если надо будет - можно стилей добавить
     return(
@@ -19,7 +19,7 @@ const ProductsList = ({items, loading}) => {
     <div className="products_content">
       {
         items.map((item) =>
-          <Product product={item} key={item.id} />
+          <Product product={item} addOrder={addOrder} key={item.id} />
         )
       }
     </div>

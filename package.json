@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "next": "^12.0.4",
+    "next-auth": "^3.27.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scroll": "^1.8.4",
     "sass": "^1.43.4"
   }
 }

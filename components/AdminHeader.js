@@ -4,7 +4,7 @@ const AdminHeader = ({children, keywords}) => {
   return( 
       <>
         <Head>
-          <meta keywords={"Это слова метатега" + keywords}></meta>
+          <meta keywords={keywords}></meta>
           <title>HewStore - THE BEST HACKS</title>
           <link
             rel="apple-touch-icon"
@@ -46,22 +46,22 @@ const AdminHeader = ({children, keywords}) => {
                   <nav className="menu navbar">
                     <ul className="header-list flex-wrap">
                       <li className="header-item" attr="main">
-                        <a href="/admin_coupons" className="header-link">КУПОНЫ</a>
+                        <a href="/admin/coupons" className="header-link">КУПОНЫ</a>
                       </li>
                       <li className="header-item d-flex" attr="ann">
-                        <a href="./admin_wallets" className="header-link">КОШЕЛЬКИ</a>
+                        <a href="/admin/wallets" className="header-link">КОШЕЛЬКИ</a>
                       </li>
                       <li className="header-item d-flex" attr="products">
-                        <a href="./admin_products" className="header-link">ТОВАРЫ</a>
+                        <a href="/admin/products" className="header-link">ТОВАРЫ</a>
                       </li>
                       <li className="header-item d-flex" attr="contacts">
-                        <a href="./admin_announcement" className="header-link">АНОНСЫ</a>
+                        <a href="/admin/announcements" className="header-link">АНОНСЫ</a>
                       </li>
                       <li className="header-item d-flex" attr="statistics">
-                          <a href="./admin_statistics" className="header-link">СТАТИСТИКА</a>
+                          <a href="/admin/statistics" className="header-link">СТАТИСТИКА</a>
                         </li>
                         <li className="header-item d-flex" attr="history">
-                          <a href="/admin_history" className="header-link">ИСТОРИЯ</a>
+                          <a href="/admin/history" className="header-link">ИСТОРИЯ</a>
                         </li>
                     </ul>
                   </nav>
@@ -84,19 +84,19 @@ const AdminHeader = ({children, keywords}) => {
                                   <a href="#" className="mobile-menu__link">КУПОНЫ</a>
                                 </li>
                                 <li className="mobile-menu__item">
-                                  <a href="./admin_wallets" className="mobile-menu__link">КОШЕЛЬКИ</a>
+                                  <a href="/admin/wallets" className="mobile-menu__link">КОШЕЛЬКИ</a>
                                 </li>
                                 <li className="mobile-menu__item">
-                                  <a href="./admin_products" className="mobile-menu__link">ТОВАРЫ</a>
+                                  <a href="/admin/products" className="mobile-menu__link">ТОВАРЫ</a>
                                 </li>
                                 <li className="mobile-menu__item">
-                                  <a href="./admin_announcement" className="mobile-menu__link">АНОНСЫ</a>
+                                  <a href="/admin/announcements" className="mobile-menu__link">АНОНСЫ</a>
                                 </li>
                                 <li className="mobile-menu__item">
-                                  <a href="./admin_statistics" className="mobile-menu__link">СТАТИСТИКА</a>
+                                  <a href="/admin/statistics" className="mobile-menu__link">СТАТИСТИКА</a>
                                 </li>
                                 <li className="mobile-menu__item">
-                                  <a href="./admin_history" className="mobile-menu__link">ИСТОРИЯ</a>
+                                  <a href="/admin/history" className="mobile-menu__link">ИСТОРИЯ</a>
                                 </li>
                               </ul>
                             </div>

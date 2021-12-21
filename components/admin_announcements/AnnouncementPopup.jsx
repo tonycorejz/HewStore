@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react';
-import UploadFile from './UI/UploadFile';
-import FormInput from './UI/FormInput';
-import CreateCouponBtn from './UI/CreateCouponBtn';
+import UploadFile from '../UI/UploadFile';
+import FormInput from '../UI/FormInput';
+import CreateCouponBtn from '../UI/CreateCouponBtn';
+
+const emptyAnnounce = {id: "", img: "", date: "", header: "", headerRU: "", body: "", bodyRU: ""};
 
 const AnnouncementPopup = ({active, setActive, create, edit, selectedAnnouncement, setSelectedAnnouncement}) => {
  
@@ -15,7 +17,8 @@ const AnnouncementPopup = ({active, setActive, create, edit, selectedAnnouncemen
       ...selectedAnnouncement, id: Date.now()
     }
     create(newAnnouncement);
-    setSelectedAnnouncement({id: "", img: "", date: "", header: "", body: ""});
+    setSelectedAnnouncement(emptyAnnounce);
+    setActive(false);
   }
 
   const editAnnouncement = (e) => {
@@ -24,7 +27,8 @@ const AnnouncementPopup = ({active, setActive, create, edit, selectedAnnouncemen
       ...selectedAnnouncement
     }
     edit(newAnnouncement);
-    setSelectedAnnouncement({id: "", img: "", date: "", header: "", body: ""});
+    setSelectedAnnouncement(emptyAnnounce);
+    setActive(false);
   }
 
   return (
@@ -38,10 +42,21 @@ const AnnouncementPopup = ({active, setActive, create, edit, selectedAnnouncemen
           type="text" 
           placeholder="Заголовок"
           />
+          <FormInput
+          value={selectedAnnouncement.headerRU}
+          onChange={e => setSelectedAnnouncement({...selectedAnnouncement, headerRU: e.target.value})}
+          type="text" 
+          placeholder="Заголовок Ru"
+          />
          <textarea className="edit-description"
           value={selectedAnnouncement.body}
           onChange={e => setSelectedAnnouncement({...selectedAnnouncement, body: e.target.value})}
           placeholder="Описание"
+          />
+          <textarea className="edit-description"
+          value={selectedAnnouncement.bodyRU}
+          onChange={e => setSelectedAnnouncement({...selectedAnnouncement, bodyRU: e.target.value})}
+          placeholder="Описание Ru"
           />
           <CreateCouponBtn onClick={active == "create" ? addNewAnnouncement : editAnnouncement}>{active == "create" ? "Создать" : "Редактировать"}</CreateCouponBtn>
           <h2 onClick={() => setActive(false)}>Отмена</h2>

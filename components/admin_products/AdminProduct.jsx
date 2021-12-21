@@ -2,7 +2,7 @@ import Link from "next/Link";
 const Product = (props) => {
 
   return (
-    <div className="new_product"  onClick={() => props.setSelectedProduct({...props.product})}>
+    <div className="new_product"  onClick={() => {props.setSelectedProduct({...props.product})} }>
       <a href="#" className="product_image if-select" tabIndex="0">
         <img
           className="product_bg"
@@ -24,17 +24,16 @@ const Product = (props) => {
         <a className="p_cart_add" href="#">
           <button>
             <svg className="icon">
-              <use xlinkHref="./assets/images/icons.svg#cart"></use>
+              <use xlinkHref="/assets/images/icons.svg#cart"></use>
             </svg>
             ADD TO CART
           </button>
         </a>
-        {/*<!-- MORE INFO 2  -->*/}
         <Link href={`../products/${props.product.id}`}>
           <a className="p_more_info" href="#">
             MORE DETAILS
             <svg className="icon">
-              <use xlinkHref="./assets/images/icons.svg#more"></use>
+              <use xlinkHref="/assets/images/icons.svg#more"></use>
             </svg>
           </a>
         </Link>

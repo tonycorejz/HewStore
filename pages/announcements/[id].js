@@ -1,11 +1,16 @@
-import {useRouter} from "next/router";
+import { useState, useEffect } from 'react';
 import MainHeader from "../../components/MainHeader";
 
 export default function Announce({announce}) {
-  const {query} = useRouter();
+  //const {announce} = useRouter();
+  const [cartactive, setCartActive] = useState(false);
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem("cart")) != null) setOrders([...JSON.parse(localStorage.getItem("cart"))])
+  }, [])
 
   return (
-    <MainHeader>
+    <MainHeader keywords={"Announcement page"} cartactive={cartactive} setCartActive={setCartActive} orders={orders} setOrders={setOrders}>
       <section className="section news">
         <div>
             <div className="for-img-news">
@@ -24,6 +29,6 @@ export async function getServerSideProps({params}) {
   const announce = response;
 
   return {
-    props: {announce}, // will be passed to the page component as props
+    props: {announce},
   }
 }
