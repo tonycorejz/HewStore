@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ProductPopup from '../../components/admin_products/ProductPopup';
 import AdminProductsList from '../../components/admin_products/AdminProductsList';
 
-const emptyProduct = {id: "", name: "", description: "", prices: [{period: "", price: "", keys: ""}], back_img: "", img: "", tag: {name: "", color: ""}};
+const emptyProduct = {id: "", name: "", nameRU: "", description: "", descriptionRU: "", prices: [{period: "", price: "", keys: ""}], back_img: "", img: "", tag: {name: "", color: ""}};
 
 const AdminProducts = () => {
 
@@ -64,7 +64,7 @@ const AdminProducts = () => {
         <section className="section coupons">
             <div className="setting-coupons-background" style={{marginBottom: 20+"px"}}>
               <div className="setting-coupons">
-                  <button onClick={() => {setSelectedProduct(emptyProduct[0]);setModalActive("create");}}>СОЗДАТЬ КУПОН</button> 
+                  <button onClick={() => {setSelectedProduct(emptyProduct);setModalActive("create");}}>СОЗДАТЬ КУПОН</button> 
                   <h1 onClick={() => selectedProduct.id!=""&&setModalActive("edit")}>РЕДАКТИРОВАТЬ</h1>
                   <h1 onClick={() => removeProduct()}>УДАЛИТЬ</h1>
               </div>

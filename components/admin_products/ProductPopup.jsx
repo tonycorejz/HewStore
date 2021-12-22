@@ -3,7 +3,7 @@ import CreateCouponBtn from '../UI/CreateCouponBtn';
 import UploadFile from '../UI/UploadFile';
 import PricesInput from '../UI/PricesInput';
 
-const emptyProduct = {id: "", name: "", description: "", prices: [{period: "", price: "", keys: ""}], back_img: "", img: "", tag: {name: "", color: ""}};
+const emptyProduct = {id: "", name: "", nameRU: "", description: "", descriptionRU: "", prices: [{period: "", price: "", keys: ""}], back_img: "", img: "", tag: {name: "", color: ""}};
 
 const ProductPopup = ({active, setActive, create, edit, selectedProduct, setSelectedProduct}) => {
 
@@ -45,6 +45,12 @@ const ProductPopup = ({active, setActive, create, edit, selectedProduct, setSele
             onChange={e => setSelectedProduct({...selectedProduct, name: e.target.value})}
             type="text" 
             placeholder="Название товара"
+            />
+            <FormInput
+            value={selectedProduct.nameRU}
+            onChange={e => setSelectedProduct({...selectedProduct, nameRU: e.target.value})}
+            type="text" 
+            placeholder="Название товара Ru"
             />
             <textarea className="edit-description"
             value={selectedProduct.description}

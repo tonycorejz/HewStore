@@ -212,7 +212,7 @@ const MainHeader = ({children, keywords, setCartActive, cartactive, orders, setO
         <div className="container">
           <div className="row">
             <div className="bottom_footer_content">
-              <a className="terms" href="#">Terms & Conditions</a>
+              <a className="terms" href="/terms_and_conditions">Terms & Conditions</a>
               <div className="header_lang">
                 <a href="#" className="_lang active_lang">ENG</a>
                 <a href="#" className="_lang">RU</a>

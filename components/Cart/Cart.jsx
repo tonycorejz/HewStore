@@ -6,6 +6,17 @@ import PurchaseListItem from './PurchaseListItem';
 
 const Cart = ({active, setCartActive, orders, setOrders}) => {
 
+  const [couponVal, setCouponVal] = useState("");
+  const [couponMessage, setCouponMessage] = useState("");
+
+  const checkCoupon = () => {
+    if(couponVal == "COUPON") {
+      setCouponMessage("Купон успешно применён")
+    } else {
+      setCouponMessage("Неверный купон")
+    }
+  }
+  
   const [chooseAll, setChooseAll] = useState(true);
   useEffect(() => {
     if(JSON.parse(localStorage.getItem("cart")) != null) [...JSON.parse(localStorage.getItem("cart"))].forEach((order) => {
@@ -112,10 +123,13 @@ const Cart = ({active, setCartActive, orders, setOrders}) => {
                       <div className="p-coupone">
                         <input
                           type="text"
+                          spellcheck="false"
                           className="p-coupone_input"
                           placeholder="Enter your coupone"
+                          value={couponVal}
+                          onChange={(e) => setCouponVal(e.target.value)}
                         />
-                        <button className="p-coupone_submit">
+                        <button className="p-coupone_submit" onClick={() => checkCoupon()}>
                           <span>
                             <svg
                               width="13"
@@ -134,6 +148,7 @@ const Cart = ({active, setCartActive, orders, setOrders}) => {
                           </span>
                         </button>
                       </div>
+                      <p className="coupon_message">{couponMessage}</p>
                       <div className="p-submit">
                         <button className="p-submit__button" onClick={() => setToPayment(!toPayment)}>
                           <p>PURCHASE</p>

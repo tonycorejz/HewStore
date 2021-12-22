@@ -2113,3 +2113,25 @@ ul.pagination li a:hover:not(.active) {
   cursor: pointer;
   margin-bottom: 10px;
 }
+
+.terms_container {
+  padding: 8.88em 10px 10.94em 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.terms_container p {
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.coupon_message {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
