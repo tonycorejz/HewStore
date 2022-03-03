@@ -2135,3 +2135,11 @@ ul.pagination li a:hover:not(.active) {
   color: #FFFFFF;
   margin-bottom: 10px;
 }
+
+.total_statistic {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 10px;
+}

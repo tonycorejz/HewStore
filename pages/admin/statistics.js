@@ -63,6 +63,8 @@ const AdminStatistics = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
+  const statisticTotal = ProductsStat.reduce((a,c) => a = {...a, price: a.price + c.sumTotal, sum: a.sum + c.purchasesAmount}, {price: 0, sum: 0})
+
   return(
     <MainContainer keywords={"Не главная страница"}>
       <div className="body-admin body-admin-coupons">
@@ -76,6 +78,10 @@ const AdminStatistics = () => {
             </div>
           </div>
           <div className="win-coupons">
+            <h3 className="total_statistic">
+              Общее количество покупок: {statisticTotal.sum}<br/>
+              Общая сумма покупок: $ {statisticTotal.price}
+            </h3>
               <table className="table-coupons">
                 <thead>
                     <tr>
